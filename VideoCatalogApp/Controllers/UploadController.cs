@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using VideoCatalogApp.Models;
 
@@ -11,7 +12,7 @@ namespace VideoCatalogApp.Controllers
     [ApiController]
     public class UploadController : ControllerBase
     {
-        private const long MaxFileSizeBytes = 200 * 1024 * 1024; // 200 MB limit
+        private readonly long _maxFileSizeBytes;
         private readonly string _mediaFolderPath;
         private readonly ILogger<UploadController> _logger;
 
@@ -30,6 +31,7 @@ namespace VideoCatalogApp.Controllers
             );
 
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _maxFileSizeBytes = options?.Value?.MaxFileSizeBytes ?? throw new ArgumentNullException(nameof(options));
         }
 
         /// <summary>
@@ -38,7 +40,6 @@ namespace VideoCatalogApp.Controllers
         /// <param name="files">List of files to upload</param>
         /// <returns>ActionResult representing the upload result</returns>
         [HttpPost]
-        [RequestSizeLimit(MaxFileSizeBytes)] // Limit request size to 200 MB
         public async Task<IActionResult> Upload(List<IFormFile> files)
         {
             try
@@ -49,7 +50,7 @@ namespace VideoCatalogApp.Controllers
                 var totalSizeBytes = files.Sum(file => file.Length);
 
                 // Check if total file size exceeds the limit
-                if (totalSizeBytes > MaxFileSizeBytes)
+                if (totalSizeBytes > _maxFileSizeBytes)
                 {
                     _logger.LogWarning("Total file size exceeds 200 MB. Request rejected.");
                     return StatusCode(StatusCodes.Status413RequestEntityTooLarge, "Total file size exceeds 200 MB. Please upload smaller files.");
