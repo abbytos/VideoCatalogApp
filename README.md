@@ -17,12 +17,9 @@ This project is an ASP.NET Core 6 MVC Web Application designed to manage and pla
 
 - **ASP.NET Core 6 MVC:** Backend framework for building web applications using the Model-View-Controller pattern in .NET.
 - **C#:** Primary programming language for backend development in the .NET ecosystem.
-- **HTML, CSS, JavaScript:** Front-end technologies for creating the user interface and adding interactivity to web pages.
-- **Bootstrap:** CSS framework used for responsive web design and UI components.
-- **jQuery:** JavaScript library for simplifying DOM manipulation and handling asynchronous operations.
+- **HTML, CSS:** Front-end technologies for creating the user interface and adding interactivity to web pages.
 - **KnockoutJS:** JavaScript library for implementing the Model-View-ViewModel (MVVM) pattern, enabling dynamic UI updates and data binding.
 - **Visual Studio 2022:** Integrated development environment (IDE) for .NET developers.
-- **Mocking Frameworks (Moq):** Framework used in testing to create mock objects for unit testing purposes.
 
 ## Setup Instructions
 
