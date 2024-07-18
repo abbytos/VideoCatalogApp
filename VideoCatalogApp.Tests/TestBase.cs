@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Hosting;
 
 namespace VideoCatalogApp.Tests
 {
@@ -19,10 +22,28 @@ namespace VideoCatalogApp.Tests
             _factory = new WebApplicationFactory<TStartup>();
 
             // Determine the project folder path dynamically and make it absolute
-            ProjectFolderPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\.."));
+            ProjectFolderPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..\\..\\..\\"));
 
             // Construct the media folder path
             MediaFolderPath = Path.Combine(ProjectFolderPath, MediaFolderName);
+
+            _factory = new WebApplicationFactory<TStartup>()
+               .WithWebHostBuilder(builder =>
+               {
+                   builder.ConfigureServices(services =>
+                   {
+                       services.AddSingleton<IWebHostEnvironment>(provider => new TestWebHostEnvironment
+                       {
+                           WebRootPath = ProjectFolderPath,
+                           WebRootFileProvider = new PhysicalFileProvider(ProjectFolderPath),
+                           // Set other properties if needed
+                           ApplicationName = "VideoCatalogApp.Tests",
+                           EnvironmentName = Environments.Development,
+                           ContentRootPath = ProjectFolderPath,
+                           ContentRootFileProvider = new PhysicalFileProvider(ProjectFolderPath)
+                       });
+                   });
+               });
         }
 
         // Setup media folder and ensure a test file is available
