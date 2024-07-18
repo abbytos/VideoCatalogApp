@@ -1,7 +1,5 @@
 # Video Catalog Web Application
 
-**Developed by Albena Roshelova**
-
 ## Summary
 
 This project is an ASP.NET Core 6 MVC Web Application designed to manage and playback MP4 video files uploaded to a server's media folder. It provides users with a simple interface to upload, view, and play back videos.
@@ -53,3 +51,6 @@ Deploy the application to a production environment following standard ASP.NET Co
 ## Notes
 
 - Total time spent on this challenge: ~ 6 hours.
+
+## Developed by
+Albena Roshelova
