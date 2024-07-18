@@ -1,0 +1,136 @@
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore build output
+/bin/
+/obj/
+
+# Ignore NuGet packages
+*.nuget.props
+*.nuget.targets
+*.lock.json
+packages/
+
+# Ignore .NET Core build files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+*/bin/*
+*/obj/*
+
+# Ignore Node.js files
+node_modules/
+npm-debug.log
+
+# Ignore SQL Server files
+*.mdf
+*.ldf
+
+# Ignore IDE files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore wwwroot/lib folder contents
+VideoCatalogApp/wwwroot/lib/
+VideoCatalogApp/wwwroot/lib/bootstrap/
+VideoCatalogApp/wwwroot/lib/jquery/
+
+# Ignore user-specific files
+*.userprefs
+*.usertasks
+
+# Ignore ReSharper files
+_ReSharper*/
+
+# Ignore Mac-specific files
+.DS_Store
+
+# Ignore JetBrains Rider files
+.idea/
+
+# Ignore Windows image file caches and logs
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Ignore browser-specific files
+*.browser
+*.cache
+*.bak
+*.tmp
+
+# Ignore dotCover files
+*.dotCover
+
+# Ignore team-shared files
+[Tt]est[Rr]esult*/
+*.trx
+*.tstest
+*.testsettings
+
+# Ignore NUnit test output
+*.TestResult.xml
+
+# Ignore Visual Studio Code files
+.vscode/
+
+# Ignore user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Rider files
+.idea/
+
+# Ignore Resharper files
+_ReSharper*/
+
+# Ignore NuGet packages
+packages/
+
+# Ignore build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Tt]emp/
+[Tt]est[Rr]esults/
+[Rr]e[Ss]harper/
+_nuxt/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore npm-debug.log
+npm-debug.log*
+
+# Ignore yarn.lock file
+yarn.lock
+
+# Ignore .env file
+.env
+
+# Ignore .vscode folder
+.vscode/
+
+# Ignore Jest test coverage
+coverage/
+
+# Ignore custom ignore files
+*.ignore

@@ -1,0 +1,44 @@
+body {
+    padding-top: 20px;
+    background-color: #f8f9fa;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+#videoPlayer {
+    margin-top: 20px;
+}
+
+.table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    .table td a:hover {
+        text-decoration: underline;
+    }
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-container {
+    margin-top: 20px;
+    max-height: 500px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+.form-control-file {
+    color: transparent;
+    overflow: hidden;
+}

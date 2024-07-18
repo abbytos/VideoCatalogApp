@@ -1,0 +1,60 @@
+﻿@model List<VideoCatalogApp.Models.VideoFileModel>
+
+<div id="app" data-bind="with: viewModel">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-primary">Upload Video</h2>
+            <form class="form-inline">
+                <div class="form-group mb-2">
+                    <input type="file" id="fileInput" name="files"  multiple class="form-control-file" data-bind="event: { change: onFileChange }" />
+                </div>
+                <button type="button" class="btn btn-success mb-2 ml-2" data-bind="click: uploadFiles">Upload</button>
+                <span data-bind="text: uploadMessage, style: { color: uploadMessageColor }"></span>
+            </form>
+
+            <!-- Table for displaying selected files and highlighting those exceeding the size limit -->
+            <div id="selected-files-container" class="mt-3" data-bind="visible: filesWithSizeInfo().length > 0">
+                <table id="selected-files-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th>File Size Max 200 (MB)</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: filesWithSizeInfo">
+                        <tr data-bind="css: { 'text-danger': exceedsLimit || !isMp4 }">
+                            <td data-bind="text: name"></td>
+                            <td data-bind="text: size"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-primary">Video Catalog</h2>
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Filename</th>
+                        <th>Size (bytes)</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: videos">
+                    <tr>
+                        <td><a href="javascript:void(0);" data-bind="text: fileName, click: $parent.playVideo, css: 'text-info'"></a></td>
+                        <td data-bind="text: fileSize"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-4" data-bind="visible: selectedVideo">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <video controls class="w-100" style="max-height: 500px;" data-bind="attr: { src: selectedVideo }"></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
