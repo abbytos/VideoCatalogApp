@@ -136,7 +136,7 @@ namespace VideoCatalogApp.Tests
         {
             var mockLogger = new Mock<ILogger<UploadController>>();
             var hostingEnvironment = _scope.ServiceProvider.GetRequiredService<IWebHostEnvironment>();
-            var options = Options.Create(new HomeControllerOptions { MediaFolderName = MediaFolderName });
+            var options = Options.Create(new HomeControllerOptions { MediaFolderName = MediaFolderName, MaxFileSizeBytes = MaxFileSizeBytes });
             var controller = new UploadController(hostingEnvironment, options, mockLogger.Object);
             return await controller.Upload(files);
         }

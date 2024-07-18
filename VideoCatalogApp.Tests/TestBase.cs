@@ -10,6 +10,7 @@ namespace VideoCatalogApp.Tests
         protected IServiceScope _scope;
         protected readonly WebApplicationFactory<TStartup> _factory;
         protected static readonly string MediaFolderName = "media";
+        protected static readonly long MaxFileSizeBytes = 200 * 1024 * 1024;
         protected readonly string ProjectFolderPath;
         protected readonly string MediaFolderPath;
 
